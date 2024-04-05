@@ -1489,18 +1489,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contact/models@npm:^0.3.38":
-  version: 0.3.38
-  resolution: "@contact/models@npm:0.3.38::__archiveUrl=https%3A%2F%2Fgit.usb.ru%2Fapi%2Fv4%2Fprojects%2F69%2Fpackages%2Fnpm%2F%40contact%2Fmodels%2F-%2F%40contact%2Fmodels-0.3.38.tgz"
-  dependencies:
-    reflect-metadata: ^0.1.13
-  peerDependencies:
-    "@sql-tools/sequelize": ^6.27.8
-    "@sql-tools/sequelize-typescript": ^2.1.5
-  checksum: 7b91d16d7f8aaccdbdd243b2ca9a8f1242e733fcbb08422e9f416ddc925ed4c111397752e989a541b6f783f9d9dd9c4a721ffa2aff44c7a3d69ba3027bdedc4e
-  languageName: node
-  linkType: hard
-
 "@emotion/babel-plugin@npm:^11.10.6":
   version: 11.10.6
   resolution: "@emotion/babel-plugin@npm:11.10.6"
@@ -7232,7 +7220,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "yarn@workspace:."
   dependencies:
-    "@contact/models": ^0.3.38
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
     "@fontsource/roboto": ^4.5.8
