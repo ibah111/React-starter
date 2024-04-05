@@ -18,8 +18,6 @@ export default function RegistriesDetailPanel({
     setLoading(true);
     return await ListRegistiresItemsRaw({
       id: String(id),
-      page: 0,
-      page_number: 0,
     })
       .then((res) => {
         if (res) {
