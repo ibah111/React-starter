@@ -4,29 +4,33 @@ import { GridColDef } from "@mui/x-data-grid-premium";
 export default function RegistriesColumns() {
   const columns: GridColDef<RegistryModel>[] = [
     {
-      field: "filename",
-      headerName: "Название файла",
+      field: "id",
+      headerName: "ID",
+      valueGetter(params) {
+        return params.row.id;
+      },
     },
     {
-      field: "created_at",
-      headerName: "Когда создано",
-    },
-    {
-      field: "credits_count",
-      headerName: "Кол-во кредитных договоров",
+      field: "cession",
+      headerName: "cession??",
     },
     {
       field: "created_by",
       headerName: "Кем создано",
     },
     {
-      field: "status",
-      headerName: "Статус",
+      field: "file.name",
+      headerName: "Имя файла",
+      valueGetter(params) {
+        return params.row.file.name;
+      },
     },
     {
-      field: "actions",
-      headerName: "Операции",
-      type: "actions",
+      field: "status.name",
+      headerName: "Статус",
+      valueGetter(params) {
+        return params.row.status.name;
+      },
     },
   ];
   return columns.map<GridColDef<RegistryModel>>((items) => ({
