@@ -1,6 +1,5 @@
 import { DataGridPremium } from "@mui/x-data-grid-premium";
 import useGridRegistries from "./useGridRegistries";
-import { Grid } from "@mui/material";
 import CustomPagination from "../../components/DataGridComponents/CustomPagination";
 import RegistriesToolbar from "./RegistriesToolbar/RegistriesToolbar";
 import React from "react";
@@ -30,17 +29,14 @@ export default function Registries() {
     refresh,
   });
   return (
-    <Grid item container xs direction={"column"}>
+    <>
       <DataGridPremium
         {...props}
-        sx={{
-          height: 400,
-          width: "100%",
-        }}
         slots={{
           pagination: CustomPagination,
           toolbar: RegistriesToolbar,
         }}
+        slotProps={{}}
       />
       {DeleteRegControlDialog.open && (
         <DeleteRegDialog
@@ -49,6 +45,6 @@ export default function Registries() {
           onClose={DeleteRegControlDialog.closeDeleteRegDialog}
         />
       )}
-    </Grid>
+    </>
   );
 }
