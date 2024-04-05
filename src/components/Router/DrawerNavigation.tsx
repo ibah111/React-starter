@@ -16,6 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LinkButton from "./LinkButton";
+import SwitchTheme from "../ThemeProvider/SwitchTheme/SwitchTheme";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -35,6 +36,7 @@ export default function Navigation() {
         <LinkButton name={"Registries"} />
       </List>
       <Divider />
+      <SwitchTheme />
     </>
   );
   /**
@@ -56,22 +58,28 @@ export default function Navigation() {
       }}
     >
       <CssBaseline />
-      <AppBar>
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(drawerStateOpen && { display: "none" }) }}
+            sx={{ mr: 2, ...(drawerStateOpen && { display: "" }) }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             {AppBarText}
           </Typography>
+          {/**
+           * тулбар ниже фиксит херовое отображение компонентов за апп-баром
+           * решение читать под fix-placement
+           * https://mui.com/material-ui/react-app-bar/#elevate-app-bar
+           */}
         </Toolbar>
       </AppBar>
+      <Toolbar />
       <Drawer open={drawerStateOpen} onClose={() => {}}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>

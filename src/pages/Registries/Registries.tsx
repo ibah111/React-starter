@@ -1,5 +1,11 @@
 import { DataGridPremium } from "@mui/x-data-grid-premium";
+import useGridRegistries from "./useGridRegistries";
 
 export default function Registries() {
-  return <DataGridPremium columns={[]} rows={[]}></DataGridPremium>;
+  const props = useGridRegistries();
+  return (
+    <>
+      <DataGridPremium {...props} />
+    </>
+  );
 }
