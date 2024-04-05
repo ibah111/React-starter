@@ -6,10 +6,10 @@ enum ListRegistiresItemsRawEnum {
 }
 
 interface ListRegistiresItemsRawParams {
-  category: ListRegistiresItemsRawEnum;
   page: number;
   page_number: number;
   id: string;
+  category?: ListRegistiresItemsRawEnum;
 }
 
 const url = "/api/cessions/registries/{id}/items-raw/";
