@@ -6,22 +6,21 @@ enum ListRegistiresItemsRawEnum {
 }
 
 interface ListRegistiresItemsRawParams {
-  page: number;
-  page_number: number;
   id: string;
+  page?: number;
+  page_number?: number;
   category?: ListRegistiresItemsRawEnum;
 }
-
-const url = "/api/cessions/registries/{id}/items-raw/";
 
 export default async function ListRegistiresItemsRaw(
   params: ListRegistiresItemsRawParams
 ) {
+  const url = `/api/cessions/registries/${params.id}/items-raw/`;
   try {
+    console.log("params: ", params);
     const req = await baseRequest.get(url, {
       data: params,
     });
-    console.log("ListRegistiresItemsRaw req", req);
     return req;
   } catch (error) {
     console.log("ListRegistiresItemsRaw error", error);
