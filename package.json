@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Ibah <starlord77@mail.ru>",
   "license": "MIT",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@4.1.1",
   "scripts": {
     "start": "vite",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix"
