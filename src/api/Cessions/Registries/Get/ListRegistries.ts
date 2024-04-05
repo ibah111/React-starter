@@ -9,14 +9,12 @@ interface ListRegistriesParams {
 export default async function ListRegistries(params: ListRegistriesParams) {
   const url = `/api/cessions/registries/`;
   try {
-    console.log("baseRequest", baseRequest);
     const req: RegistryModel = await baseRequest.get(url, {
       data: { ...params },
     });
-    console.log("ListRegistries", req);
     return req;
   } catch (error) {
-    console.log("ListRegistries", error);
+    console.log("ListRegistries error", error);
     return error;
   }
 }

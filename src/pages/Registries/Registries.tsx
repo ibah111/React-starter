@@ -5,6 +5,7 @@ import RegistriesToolbar from "./RegistriesToolbar/RegistriesToolbar";
 import React from "react";
 import DeleteRegControl from "./DeleteRegControl";
 import DeleteRegDialog from "./DeleteRegDialog";
+import RegistriesDetailPanel from "./RegistriesDetailPanel/RegistriesDetailPanel";
 
 export enum RegistriesEvents {
   delete = "delete",
@@ -37,6 +38,9 @@ export default function Registries() {
           toolbar: RegistriesToolbar,
         }}
         slotProps={{}}
+        getDetailPanelContent={(params) => {
+          return RegistriesDetailPanel(params.row.id);
+        }}
       />
       {DeleteRegControlDialog.open && (
         <DeleteRegDialog
