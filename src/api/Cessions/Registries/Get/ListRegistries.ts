@@ -3,7 +3,7 @@ import { baseRequest } from "../../../../utils/baseRequest";
 
 interface ListRegistriesParams {
   page: number;
-  page_size: number;
+  pageSize: number;
 }
 
 export default function ListRegistries(params: ListRegistriesParams) {
