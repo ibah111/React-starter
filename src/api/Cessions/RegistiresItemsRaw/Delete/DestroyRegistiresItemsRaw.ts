@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseRequest } from "../../../utils/baseRequest";
+import { baseRequest } from "../../../../utils/baseRequest";
 
 interface DestroyRegistiresItemsRawParams {
   id: string;
