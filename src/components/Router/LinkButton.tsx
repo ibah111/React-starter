@@ -18,7 +18,9 @@ const ReactNavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
             : (props.className as string);
         }}
         style={({ isActive }) => ({
-          color: isActive ? "red" : "black",
+          color: isActive ? "white" : "blue",
+          background: isActive ? "blue" : "white",
+          border: "solid",
         })}
       />
     );
