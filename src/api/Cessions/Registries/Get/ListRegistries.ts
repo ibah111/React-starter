@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 import { RegistryModel } from "../../../../models/Registry.model";
 
@@ -10,7 +9,8 @@ interface ListRegistriesParams {
 export default async function ListRegistries(params: ListRegistriesParams) {
   const url = `/api/cessions/registries/`;
   try {
-    const req: RegistryModel = await axios.get(baseRequest + url, {
+    console.log("baseRequest", baseRequest);
+    const req: RegistryModel = await baseRequest.get(url, {
       data: { ...params },
     });
     console.log("ListRegistries", req);

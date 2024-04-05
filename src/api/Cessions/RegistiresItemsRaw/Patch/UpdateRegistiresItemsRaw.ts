@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface UpdateRegistiresItemsRawParams {
@@ -12,7 +11,7 @@ export default async function UpdateRegistiresItemsRaw(
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = await axios.patch(baseRequest + url, {
+    const req = await baseRequest.patch(url, {
       data: params.data,
     });
     return req;

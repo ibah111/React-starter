@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface DestroyRegistiresItemsRawParams {
@@ -11,7 +10,7 @@ export default async function DestroyRegistiresItemsRaw(
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = await axios.delete(baseRequest + url);
+    const req = await baseRequest.delete(url);
     return req;
   } catch (error) {}
 }

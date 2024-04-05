@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface RetrieveRegistriesParams {
@@ -10,7 +9,7 @@ export default async function RetrieveRegistries(
 ) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = await axios.get(baseRequest + url);
+    const req = await baseRequest.get(url);
     console.log("RetrieveRegistries", req);
   } catch (error) {
     console.log("RetrieveRegistries error", error);

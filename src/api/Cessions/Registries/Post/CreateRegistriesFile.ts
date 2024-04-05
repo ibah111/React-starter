@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface CreateRegistriesFileParams {
@@ -22,7 +21,7 @@ export default async function CreateRegistriesFile(
   params: CreateRegistriesFileParams
 ) {
   try {
-    const req = await axios.post(baseRequest + url, {
+    const req = await baseRequest.post(url, {
       data: params,
     });
     console.log("CreateRegistriesFile req", req);

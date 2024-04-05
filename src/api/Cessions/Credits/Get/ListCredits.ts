@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface ListCreditsParameters {
@@ -14,7 +13,7 @@ interface ListCreditsParameters {
 const url = "/api/credits/";
 export default async function ListCredits(params: ListCreditsParameters) {
   try {
-    const req = await axios.get(baseRequest + url, {
+    const req = await baseRequest.get(url, {
       data: params,
     });
     console.log("ListCredits: ", req);

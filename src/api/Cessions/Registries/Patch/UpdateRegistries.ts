@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 class UpdateRegistriesData {
@@ -15,7 +14,7 @@ interface UpdateRegistriesParams {
 export default async function UpdateRegistries(params: UpdateRegistriesParams) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = await axios.patch(baseRequest + url, {
+    const req = await baseRequest.patch(url, {
       data: params.data,
     });
     console.log("UpdateRegistries", req);

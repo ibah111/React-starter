@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface DestroyRegistriesParams {
@@ -10,7 +9,7 @@ export default async function DestroyRegistries(
 ) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = await axios.delete(baseRequest + url);
+    const req = await baseRequest.delete(url);
     console.log("DestroyRegistries", req);
     return req;
   } catch (error) {

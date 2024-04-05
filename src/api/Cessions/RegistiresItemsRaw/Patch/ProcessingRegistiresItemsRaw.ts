@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 class ProcessingRegistiresItemsRawRequestBody {
@@ -18,7 +17,7 @@ export default async function ProcessingRegistiresItemsRaw(
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/processing/`;
   try {
-    const req = await axios.patch(baseRequest + url, {
+    const req = await baseRequest.patch(url, {
       data: params.data,
     });
     console.log("ProcessingRegistiresItemsRaw req", req);

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 class RetrieveRegistiresItemsRawData {
@@ -19,7 +18,7 @@ export default async function RetrieveRegistiresItemsRaw(
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = await axios.get(baseRequest + url, {
+    const req = await baseRequest.get(url, {
       data: params.data,
     });
     console.log("RetrieveRegistiresItemsRaw", req);

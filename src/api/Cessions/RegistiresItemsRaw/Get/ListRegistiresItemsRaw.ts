@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 enum ListRegistiresItemsRawEnum {
@@ -19,7 +18,7 @@ export default async function ListRegistiresItemsRaw(
   params: ListRegistiresItemsRawParams
 ) {
   try {
-    const req = await axios.get(baseRequest + url, {
+    const req = await baseRequest.get(url, {
       data: params,
     });
     console.log("ListRegistiresItemsRaw req", req);

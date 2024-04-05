@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface ExportRegistriesParams {
@@ -7,7 +6,7 @@ interface ExportRegistriesParams {
 export default async function ExportRegistries(params: ExportRegistriesParams) {
   const url = `/api/cessions/registries/${params.id}/export/`;
   try {
-    const req = await axios.get(baseRequest + url);
+    const req = await baseRequest.get(url);
     console.log("ExportRegistries", req);
     return req;
   } catch (error) {

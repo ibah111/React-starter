@@ -1,4 +1,3 @@
-import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
 
 interface RetrieveCreditsParameters {
@@ -10,7 +9,7 @@ export default async function RetrieveCredits(
 ) {
   const urlId = `${url}${params.id}`;
   try {
-    const req = await axios.get(baseRequest + urlId);
+    const req = await baseRequest.get(urlId);
     console.log("RetrieveCredits: ", req);
     return req;
   } catch (error) {
