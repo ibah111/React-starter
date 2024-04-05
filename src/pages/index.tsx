@@ -1,7 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import SwitchTheme from "../../components/ThemeProvider/SwitchTheme/SwitchTheme";
-import AgreementTable from "../../components/Form/GetAgreements/Table";
+import SwitchTheme from "../components/ThemeProvider/SwitchTheme/SwitchTheme";
 
 export default function Main() {
   return (
@@ -12,7 +11,6 @@ export default function Main() {
             <SwitchTheme />
           </Grid>
         </Grid>
-        <AgreementTable />
       </Grid>
     </>
   );
