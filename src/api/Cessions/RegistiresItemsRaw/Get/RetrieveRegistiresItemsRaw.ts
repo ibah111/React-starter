@@ -14,12 +14,12 @@ interface RetrieveRegistiresItemsRawParams {
   data: RetrieveRegistiresItemsRawData;
 }
 
-export default function RetrieveRegistiresItemsRaw(
+export default async function RetrieveRegistiresItemsRaw(
   params: RetrieveRegistiresItemsRawParams
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = axios.get(baseRequest + url, {
+    const req = await axios.get(baseRequest + url, {
       data: params.data,
     });
     console.log("RetrieveRegistiresItemsRaw", req);

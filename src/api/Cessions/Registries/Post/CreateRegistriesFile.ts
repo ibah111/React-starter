@@ -18,11 +18,11 @@ interface CreateRegistriesFileParams {
 
 const url = "/api/cessions/registries/upload/";
 
-export default function CreateRegistriesFile(
+export default async function CreateRegistriesFile(
   params: CreateRegistriesFileParams
 ) {
   try {
-    const req = axios.post(baseRequest + url, {
+    const req = await axios.post(baseRequest + url, {
       data: params,
     });
     console.log("CreateRegistriesFile req", req);

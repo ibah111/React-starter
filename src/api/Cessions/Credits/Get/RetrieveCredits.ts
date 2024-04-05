@@ -5,10 +5,12 @@ interface RetrieveCreditsParameters {
   id: number;
 }
 const url = "/api/credits/";
-export default function RetrieveCredits(params: RetrieveCreditsParameters) {
+export default async function RetrieveCredits(
+  params: RetrieveCreditsParameters
+) {
   const urlId = `${url}${params.id}`;
   try {
-    const req = axios.get(baseRequest + urlId);
+    const req = await axios.get(baseRequest + urlId);
     console.log("RetrieveCredits: ", req);
     return req;
   } catch (error) {

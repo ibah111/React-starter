@@ -6,12 +6,12 @@ interface DestroyRegistiresItemsRawParams {
   item_id: number;
 }
 
-export default function DestroyRegistiresItemsRaw(
+export default async function DestroyRegistiresItemsRaw(
   params: DestroyRegistiresItemsRawParams
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = axios.delete(baseRequest + url);
+    const req = await axios.delete(baseRequest + url);
     return req;
   } catch (error) {}
 }

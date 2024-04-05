@@ -1,15 +1,16 @@
 import axios from "axios";
 import { baseRequest } from "../../../../utils/baseRequest";
+import { RegistryModel } from "../../../../models/Registry.model";
 
 interface ListRegistriesParams {
   page: number;
   pageSize: number;
 }
 
-export default function ListRegistries(params: ListRegistriesParams) {
+export default async function ListRegistries(params: ListRegistriesParams) {
   const url = `/api/cessions/registries/`;
   try {
-    const req = axios.get(baseRequest + url, {
+    const req: RegistryModel = await axios.get(baseRequest + url, {
       data: { ...params },
     });
     console.log("ListRegistries", req);

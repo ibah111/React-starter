@@ -15,11 +15,11 @@ interface ListRegistiresItemsRawParams {
 
 const url = "/api/cessions/registries/{id}/items-raw/";
 
-export default function ListRegistiresItemsRaw(
+export default async function ListRegistiresItemsRaw(
   params: ListRegistiresItemsRawParams
 ) {
   try {
-    const req = axios.get(baseRequest + url, {
+    const req = await axios.get(baseRequest + url, {
       data: params,
     });
     console.log("ListRegistiresItemsRaw req", req);

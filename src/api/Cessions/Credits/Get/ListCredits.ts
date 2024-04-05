@@ -12,9 +12,9 @@ interface ListCreditsParameters {
   status: string;
 }
 const url = "/api/credits/";
-export default function ListCredits(params: ListCreditsParameters) {
+export default async function ListCredits(params: ListCreditsParameters) {
   try {
-    const req = axios.get(baseRequest + url, {
+    const req = await axios.get(baseRequest + url, {
       data: params,
     });
     console.log("ListCredits: ", req);

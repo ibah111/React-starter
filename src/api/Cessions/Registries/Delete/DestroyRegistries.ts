@@ -5,10 +5,12 @@ interface DestroyRegistriesParams {
   id: number;
 }
 
-export default function DestroyRegistries(params: DestroyRegistriesParams) {
+export default async function DestroyRegistries(
+  params: DestroyRegistriesParams
+) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = axios.delete(baseRequest + url);
+    const req = await axios.delete(baseRequest + url);
     console.log("DestroyRegistries", req);
     return req;
   } catch (error) {

@@ -5,10 +5,12 @@ interface RetrieveRegistriesParams {
   id: number;
 }
 
-export default function RetrieveRegistries(params: RetrieveRegistriesParams) {
+export default async function RetrieveRegistries(
+  params: RetrieveRegistriesParams
+) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = axios.get(baseRequest + url);
+    const req = await axios.get(baseRequest + url);
     console.log("RetrieveRegistries", req);
   } catch (error) {
     console.log("RetrieveRegistries error", error);

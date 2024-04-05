@@ -12,10 +12,10 @@ interface UpdateRegistriesParams {
   data: UpdateRegistriesData;
 }
 
-export default function UpdateRegistries(params: UpdateRegistriesParams) {
+export default async function UpdateRegistries(params: UpdateRegistriesParams) {
   const url = `/api/cessions/registries/${params.id}/`;
   try {
-    const req = axios.patch(baseRequest + url, {
+    const req = await axios.patch(baseRequest + url, {
       data: params.data,
     });
     console.log("UpdateRegistries", req);

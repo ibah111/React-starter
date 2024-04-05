@@ -7,12 +7,12 @@ interface UpdateRegistiresItemsRawParams {
   data: string;
 }
 
-export default function UpdateRegistiresItemsRaw(
+export default async function UpdateRegistiresItemsRaw(
   params: UpdateRegistiresItemsRawParams
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/`;
   try {
-    const req = axios.patch(baseRequest + url, {
+    const req = await axios.patch(baseRequest + url, {
       data: params.data,
     });
     return req;

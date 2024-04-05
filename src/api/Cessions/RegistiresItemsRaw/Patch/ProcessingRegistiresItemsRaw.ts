@@ -13,12 +13,12 @@ interface ProcessingRegistiresItemsRawParams {
   data: ProcessingRegistiresItemsRawRequestBody;
 }
 
-export default function ProcessingRegistiresItemsRaw(
+export default async function ProcessingRegistiresItemsRaw(
   params: ProcessingRegistiresItemsRawParams
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/${params.item_id}/processing/`;
   try {
-    const req = axios.patch(baseRequest + url, {
+    const req = await axios.patch(baseRequest + url, {
       data: params.data,
     });
     console.log("ProcessingRegistiresItemsRaw req", req);
