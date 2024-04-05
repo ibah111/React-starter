@@ -2,10 +2,18 @@ import CustomIconButton from "../../components/IconButton/IconButton";
 import { RegistryModel } from "../../models/Registry.model";
 import { GridColDef } from "@mui/x-data-grid-premium";
 import DeleteIcon from "@mui/icons-material/Delete";
-import DestroyRegistries from "../../api/Cessions/Registries/Delete/DestroyRegistries";
 import DownloadIcon from "@mui/icons-material/Download";
+import { RegEvent, RegistriesEvents } from "./Registries";
 
-export default function RegistriesColumns() {
+interface RegistriesColumnsProps {
+  eventTarget: EventTarget;
+  refresh: VoidFunction;
+}
+
+export default function RegistriesColumns({
+  eventTarget,
+  refresh,
+}: RegistriesColumnsProps) {
   const columns: GridColDef<RegistryModel>[] = [
     {
       field: "id",
@@ -44,11 +52,11 @@ export default function RegistriesColumns() {
         <CustomIconButton
           name={"Удалить"}
           Icon={DeleteIcon}
-          func={() =>
-            DestroyRegistries({
-              id: params.row.id,
-            })
-          }
+          func={() => {
+            eventTarget.dispatchEvent(
+              new RegEvent(RegistriesEvents.delete, params.row.id)
+            );
+          }}
         />,
         <CustomIconButton
           name={"Скачать"}

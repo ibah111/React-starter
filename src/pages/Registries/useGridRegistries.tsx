@@ -21,8 +21,9 @@ interface GridResult<T extends GridValidRowModel> {
   loading: boolean;
 }
 
-export default function useGridRegistries(): GridResult<RegistryModel> {
-  const columns = RegistriesColumns();
+export default function useGridRegistries(
+  DialogTarget: EventTarget
+): GridResult<RegistryModel> {
   const [loading, setLoading] = React.useState(false);
   const [rows, setRows] = React.useState<RegistryModel[]>([]);
   const [paginationModel, onPaginationModelChange] =
@@ -47,6 +48,10 @@ export default function useGridRegistries(): GridResult<RegistryModel> {
       })
       .finally(() => setLoading(false));
   }, [paginationModel]);
+  const columns = RegistriesColumns({
+    eventTarget: DialogTarget,
+    refresh: refresh,
+  });
   /**
    * отрисовка компонента
    */
