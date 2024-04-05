@@ -5,17 +5,18 @@ import RegistryDetailPanelColumns from "./RegistryDetailPanelColumns";
 import RegistriesItemsRawModel from "./RegistriesItemsRaw.model";
 import ListRegistiresItemsRaw from "../../../api/Cessions/RegistiresItemsRaw/Get/ListRegistiresItemsRaw";
 
-// interface RegistriesDetailPanelParams {
-//   id: number;
-// }
+interface RegistriesDetailPanelProps {
+  id: number;
+}
 
-export default function RegistriesDetailPanel(id: number) {
-  console.log("dick1");
+export default function RegistriesDetailPanel({
+  id,
+}: RegistriesDetailPanelProps) {
   const [loading, setLoading] = React.useState(false);
   const [rows, setRows] = React.useState<RegistriesItemsRawModel[]>([]);
-  const request = React.useCallback(() => {
+  const request = React.useCallback(async () => {
     setLoading(true);
-    return ListRegistiresItemsRaw({
+    return await ListRegistiresItemsRaw({
       id: String(id),
       page: 0,
       page_number: 0,
@@ -31,7 +32,6 @@ export default function RegistriesDetailPanel(id: number) {
       })
       .finally(() => setLoading(false));
   }, [id]);
-
   React.useEffect(() => {
     request();
   }, [request]);
