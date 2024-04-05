@@ -1,4 +1,4 @@
-import { IconButton, SvgIconTypeMap } from "@mui/material";
+import { IconButton, SvgIconTypeMap, Tooltip } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 interface IconButtonProps {
@@ -13,9 +13,10 @@ export default function CustomIconButton({
   func,
 }: IconButtonProps) {
   return (
-    <IconButton onClick={() => func()}>
-      <Icon />
-      {name ? name : ""}
-    </IconButton>
+    <Tooltip title={name}>
+      <IconButton onClick={() => func()} size="small">
+        <Icon />
+      </IconButton>
+    </Tooltip>
   );
 }
