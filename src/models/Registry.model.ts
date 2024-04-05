@@ -1,7 +1,15 @@
 export class RegistryModel {
-  filename: string;
-  created_at: Date;
-  credits_count: number;
+  id: number;
+  cession: string;
   created_by: string;
-  status: string;
+  creadits_count: string;
+  file: {
+    name: string;
+    url: string;
+  };
+  status: {
+    code: string;
+    color: string;
+    name: string;
+  };
 }
