@@ -31,14 +31,14 @@ export default function useGridRegistries(): GridResult<RegistryModel> {
       pageSize: 25,
     });
   const refresh = React.useCallback(() => {
-    console.log("UseGridRegistries");
     setLoading(true);
     return ListRegistries({
       ...paginationModel,
     })
       .then((result) => {
         if (result) {
-          const res = result as RegistryModel[];
+          //@ts-ignore
+          const res = result.data as RegistryModel[];
           setRows(res);
         }
       })
