@@ -21,8 +21,9 @@ export default function RegistriesDetailPanel({
     })
       .then((res) => {
         if (res) {
+          console.log(res);
           //@ts-ignore
-          setRows(res.data!);
+          setRows(res.data);
         }
       })
       .catch((error) => {

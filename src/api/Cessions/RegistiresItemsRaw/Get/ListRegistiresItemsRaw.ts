@@ -17,7 +17,6 @@ export default async function ListRegistiresItemsRaw(
 ) {
   const url = `/api/cessions/registries/${params.id}/items-raw/`;
   try {
-    console.log("params: ", params);
     const req = await baseRequest.get(url, {
       data: params,
     });
