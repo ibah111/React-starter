@@ -24,6 +24,7 @@ export default function RegistriesDetailPanel({
           console.log(res);
           //@ts-ignore
           setRows(res.data);
+          setLoading(false);
         }
       })
       .catch((error) => {
@@ -53,7 +54,7 @@ function RegistryCard({ func, rows, loading }: RegistryCardParams) {
       <Paper sx={{ flex: 1, mx: "auto", width: "90%", p: 1 }}>
         <Stack direction="column" spacing={1} sx={{ height: 1 }}>
           <DataGridPremium
-            loading
+            loading={loading}
             density="compact"
             columns={columns}
             rows={rows}

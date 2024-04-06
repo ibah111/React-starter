@@ -31,9 +31,9 @@ export default function useGridRegistries(
       page: 0,
       pageSize: 25,
     });
-  const refresh = React.useCallback(() => {
+  const refresh = React.useCallback(async () => {
     setLoading(true);
-    return ListRegistries({
+    return await ListRegistries({
       ...paginationModel,
     })
       .then((result) => {
